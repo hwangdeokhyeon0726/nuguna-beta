@@ -1,0 +1,7 @@
+{
+  "name": "nuguna-static-beta",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-static.mjs"
+  }
+}
