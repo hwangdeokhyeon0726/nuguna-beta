@@ -1,0 +1,31 @@
+/* V18 renewal: presentation only. Existing state and actions remain in index.html. */
+:root{--ng-ink:#17212f;--ng-muted:#667085;--ng-surface:#fff;--ng-line:#e7edf3;--ng-green:#315a3b;--ng-mist:#f3f4f1}
+body{color:var(--ng-ink)}
+.btn,.copy{border-radius:9px}
+.betaPanel,.betaLinkCard,.adminPanel,.adminMetric,.stat{border-radius:14px}
+#modal:has(.sellerRenewal) .modal{width:min(1440px,96vw);max-width:1440px;background:#f7f7f5}
+#modal:has(.sellerRenewal) .betaWorkspace>h2{display:none}
+#modal:has(.sellerRenewal) .betaWorkspace>.betaTopInfo{margin:8px 0 16px}
+.sellerRenewal{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;align-items:start}
+.sellerRenewal .side{position:sticky;top:0;background:#eeedeb;border-radius:14px;padding:20px 12px;min-height:660px;display:flex;flex-direction:column;gap:7px}
+.renewalBrand{padding:8px 12px 24px;display:grid;gap:5px;letter-spacing:.12em}.renewalBrand strong{font-size:21px}.renewalBrand small{letter-spacing:0;color:var(--ng-muted)}
+.sellerRenewal .side button{background:transparent;color:#23392a;text-align:left;padding:13px 14px;border-radius:9px;font-weight:700}
+.sellerRenewal .side button.active{background:#6c7e67;color:white}
+.sellerRenewal .dash{min-width:0;background:transparent;padding:0}
+.renewalTitle{display:flex;justify-content:space-between;align-items:start;gap:12px;margin:0 0 18px}.renewalTitle h3{font-size:25px;margin:0}.renewalTitle p{margin:4px 0 0;color:var(--ng-muted)}.renewalTitle span{font-size:12px;background:#edf4ed;color:#315a3b;border-radius:20px;padding:7px 12px;white-space:nowrap}
+.renewalTop{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}.renewalFeature,.renewalSummary,.renewalMiddle>section,.renewalRecent{border:1px solid var(--ng-line);border-radius:14px;background:white;overflow:hidden}
+.renewalFeature{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:270px;background:#ebeae5}.renewalFeature>div:last-child{padding:24px}.renewalFeature small{letter-spacing:.12em;color:#55755c}.renewalFeature h3{font-size:23px;margin:10px 0}.renewalFeature p{color:#58665a}.renewalPhoto{height:100%;min-height:270px}.renewalPhoto img{width:100%;height:100%;object-fit:cover}
+.renewalSummary{padding:22px}.renewalSummary h3,.renewalMiddle h3,.renewalRecent h3{margin:0 0 8px;font-size:18px}.renewalSummary>p,.renewalMiddle p{color:var(--ng-muted);font-size:13px}.renewalSummary .betaStats{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:10px 0}.renewalSummary .stat{border:0;border-radius:0;padding:14px 10px;border-bottom:1px solid var(--ng-line);box-shadow:none}.renewalSummary .stat b{font-size:21px}
+.renewalMiddle{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.renewalMiddle>section{padding:22px}.renewalMiddle>section>strong{font-size:26px;display:block;margin:10px 0}.renewalMiddle .tierProgress{margin:0 0 12px}.renewalRecent{padding:22px}.renewalRecent .betaTableWrap{max-width:100%;overflow-x:auto}
+.adminOverlay{background:#f5f6f4;color:var(--ng-ink)}.adminMain .adminPanel,.adminMain .betaPanel{border:1px solid var(--ng-line);box-shadow:none}.adminMain .adminMetric{border:1px solid var(--ng-line);box-shadow:none}.adminMenu{border-color:var(--ng-line)}
+@media(max-width:760px){#modal:has(.sellerRenewal) .modal{width:100%;max-width:100%;padding:16px}.sellerRenewal{display:block}.sellerRenewal .side{position:static;min-height:0;display:flex;flex-direction:row;overflow-x:auto;padding:8px;margin-bottom:16px}.sellerRenewal .side button{white-space:nowrap;min-height:44px}.renewalBrand{display:none}.renewalTop,.renewalMiddle{grid-template-columns:1fr}.renewalFeature{min-height:200px}.renewalPhoto{min-height:200px}.renewalFeature>div:last-child{padding:16px}.renewalFeature h3{font-size:19px}.renewalSummary .stat b{font-size:18px}.renewalRecent{padding:16px}}
+#modal:has(.brandRenewal) .modal{width:min(1440px,96vw);max-width:1440px;background:#f7f7f5}
+.brandRenewal{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;align-items:start}
+.brandRenewal>.betaTabs{position:sticky;top:0;display:flex;flex-direction:column;align-items:stretch;gap:7px;background:#eeedeb;border-radius:14px;padding:20px 12px;min-height:500px}
+.brandRenewal>.betaTabs .btn{text-align:left;background:#6c7e67;color:#fff;padding:13px 14px;min-height:44px}.brandRenewal>.betaTabs .btn.light{background:transparent;color:#23392a}
+#brandContent{min-width:0;background:white;border:1px solid var(--ng-line);padding:22px;border-radius:14px}#brandContent .betaTableWrap{max-width:100%;overflow-x:auto}
+.buyerView .buyerHead{border-color:var(--ng-line)}.buyerView .buyerHead b{letter-spacing:.06em}.buyerView .buyerMain{color:var(--ng-ink)}
+@media(max-width:760px){#modal:has(.brandRenewal) .modal{width:100%;max-width:100%;padding:16px}.brandRenewal{display:block}.brandRenewal>.betaTabs{position:static;min-height:0;flex-direction:row;overflow-x:auto;padding:8px;margin-bottom:16px}.brandRenewal>.betaTabs .btn{white-space:nowrap}.brandRenewal #brandContent{padding:15px}}
+.renewalBrand{position:relative}.renewalBrand .renewalCollapse{position:absolute;right:0;top:0;padding:8px;background:transparent;color:#536356;font-size:17px}.sellerRenewal.is-collapsed,.brandRenewal.is-collapsed{grid-template-columns:64px minmax(0,1fr)}.is-collapsed .renewalBrand strong,.is-collapsed .renewalBrand small{visibility:hidden}.is-collapsed>.side>button,.is-collapsed>.betaTabs>button{font-size:0;text-align:center;padding:12px 0}.is-collapsed>.side>button::first-letter,.is-collapsed>.betaTabs>button::first-letter{font-size:15px}
+#featuredProducts .card{border:1px solid var(--ng-line);border-radius:14px;overflow:hidden;box-shadow:none}#featuredProducts .card img{max-width:100%}.buyerView button{border-radius:9px}.buyerView input,.buyerView select,.buyerView textarea{border-radius:9px}.adminMain .adminTable th{background:#f5f6f4}.adminMain .adminTable td,.adminMain .adminTable th{border-color:var(--ng-line)}
+@media(max-width:760px){.sellerRenewal.is-collapsed,.brandRenewal.is-collapsed{display:block}.is-collapsed>.side>button,.is-collapsed>.betaTabs>button{font-size:inherit;padding:13px 14px}}
