@@ -273,6 +273,7 @@ function seed(){
  clicks:[],orders:[],adjustments:[],logs:[],policyHistory:[]};
 }
 try{const stored=localStorage.getItem(KEY);db=stored?JSON.parse(stored):seed();if(db.version!==18)db=seed();session=JSON.parse(sessionStorage.getItem(SESSION)||'null');}catch{db=seed();}
+if(!db.testProductLinksIssued){for(const [productId,linkId] of [['P-101','L-NUGUNA-TEST-101'],['P-102','L-NUGUNA-TEST-102'],['P-103','L-NUGUNA-TEST-103']]){if(db.products.some(p=>p.id===productId)&&!db.links.some(l=>l.id===linkId)){db.links.push({id:linkId,sellerId:'S-101',productId,createdAt:db.today,deletedAt:null,disabled:false});}}db.testProductLinksIssued=true;}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true;}catch{toast('브라우저 저장 공간이 부족해 저장하지 못했습니다. 이미지를 줄이거나 데이터를 내보내 주세요.');return false;}}
 const who=()=>db.accounts.find(a=>a.id===session?.id)||null;
 const product=pid=>db.products.find(p=>p.id===pid);
