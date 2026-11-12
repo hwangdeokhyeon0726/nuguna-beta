@@ -25,6 +25,15 @@ for (const file of files) {
   await copyFile(join(sourceDir, file.name), join(outputDir, file.name));
   count++;
 }
+// Ship the spreadsheet engine locally; the beta must not depend on a CDN.
+await mkdir(join(outputDir, 'vendor'), { recursive: true });
+for (const asset of ['xlsx.full.min.js', 'SHEETJS-LICENSE.txt']) {
+  await copyFile(join(sourceDir, 'vendor', asset), join(outputDir, 'vendor', asset));
+  count++;
+}
+for (const file of ['shipping.js', 'shipping-ui.js']) {
+  new Script(await readFile(join(sourceDir, file), 'utf8'), { filename: file });
+}
 for (const asset of ['index.html', 'serum.webp', 'care.webp', 'object.webp', 'phone.webp', 'sample_mugs.png']) {
   await readFile(join(outputDir, asset));
 }
