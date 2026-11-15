@@ -5,10 +5,10 @@ const S = require('../nuguna_beta/shipping.js');
 const sample = (id, brandId='B-1', extra={}) => ({id,brandId,guestDemo:true,guestIdentity:'nuguna-fictitious-v1',status:'paid',shippingState:'paid',createdAt:'2026-11-13',productName:'테스트 상품',optionName:'100ml',qty:2,amount:12000,...extra});
 
 test('a real xlsx workbook round-trips headers and tracking as text', () => {
-  const book=S.makeWorkbook([sample('O-1')]);
+  const book=S.makeWorkbook([sample('O-1','B-1',{sku:'SKU-001'})]);
   const sheet=book.Sheets['주문'];
-  assert.deepEqual(S.HEADERS.slice(-2),['택배사','운송장번호']);
-  assert.equal(sheet.N2.z,'@');
+  assert.deepEqual(S.HEADERS.slice(-3),['택배사','운송장번호','옵션관리코드(SKU)']);
+  assert.equal(sheet.N2.z,'@');assert.equal(sheet.O2.v,'SKU-001');
   sheet.M2={t:'s',v:'가상택배'};sheet.N2={t:'s',v:'001234567890',z:'@'};
   const bytes=XLSX.write(book,{type:'array',bookType:'xlsx'});
   const rows=S.parseWorkbook(bytes);
