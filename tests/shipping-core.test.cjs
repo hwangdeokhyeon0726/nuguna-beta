@@ -24,6 +24,8 @@ test('matching is brand-scoped, validates details and distinguishes duplicates',
 
 test('label registration is distinct from shipping and delivery', () => {
   assert.equal(S.stage(sample('A','B-1',{carrier:'x'})), 'paid');
+  assert.equal(S.stage(sample('A','B-1',{purchaseMode:'group',groupState:'waiting'})), 'hold');
+  assert.equal(S.stage(sample('A','B-1',{purchaseMode:'group',groupState:'succeeded'})), 'paid');
   assert.equal(S.stage(sample('A','B-1',{carrier:'택배',trackingNumber:'0001',shippingState:'invoice'})), 'invoice');
   assert.equal(S.stage(sample('A','B-1',{carrier:'택배',trackingNumber:'0001',shippingState:'shipping'})), 'shipping');
   assert.equal(S.stage(sample('A','B-1',{deliveredAt:'2026-11-13'})), 'delivered');

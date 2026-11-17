@@ -8,6 +8,7 @@
   const total = order => (Number(order.amount)||0)+(Number(order.shippingFee)||0);
   function stage(order) {
     if (isCancelled(order)) return 'cancelled';
+    if (order.purchaseMode==='group' && order.groupState!=='succeeded') return 'hold';
     if (order.dispute?.state === 'pending' || (order.review && order.review !== 'clear')) return 'hold';
     if (order.deliveredAt || order.shippingState === 'delivered') return 'delivered';
     if (order.shippingState === 'shipping') return 'shipping';
