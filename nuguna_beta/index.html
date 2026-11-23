@@ -257,6 +257,7 @@ renderFeatured();
 </script>
 <script src="vendor/xlsx.full.min.js"></script>
 <script src="groupbuy.js"></script>
+<script src="sample-catalog.js"></script>
 <script src="pro-incentive.js"></script>
 <script src="supabase-catalog.js" defer></script>
 <script src="shipping.js"></script>
@@ -292,6 +293,7 @@ if(!db.sellerBaseFiveApplied){for(const p of db.products){if(Number.isFinite(Num
 if(!db.sellerBaseSixApplied){for(const p of db.products){if(Number(p.rate)===5&&Number.isFinite(Number(p.price))){p.rate=6;p.profit=Math.round(Number(p.price)*0.06);}}db.sellerBaseSixApplied=true;}
 // Preserve all existing order snapshots; new product rates use the revised policy.
 if(!db.commissionPolicy13Applied){db.commissionPolicyHistory=db.commissionPolicyHistory||[];db.commissionPolicyHistory.push({at:new Date().toISOString(),kind:'policy_13_5_5_5_6_5',previousProducts:db.products.map(p=>({id:p.id,rate:p.rate,profit:p.profit}))});for(const p of db.products){if(Number.isFinite(Number(p.price))){p.rate=5;p.profit=Math.round(Number(p.price)*0.05);}}for(const o of db.orders){if(o.brandFeeRate==null)o.brandFeeRate=18;if(!o.commissionPolicyVersion)o.commissionPolicyVersion='legacy';}db.commissionPolicy13Applied=true;}
+NugunaSampleCatalog.apply(db);
 if(!db.testProductLinksIssued){for(const [productId,linkId] of [['P-101','L-NUGUNA-TEST-101'],['P-102','L-NUGUNA-TEST-102'],['P-103','L-NUGUNA-TEST-103']]){if(db.products.some(p=>p.id===productId)&&!db.links.some(l=>l.id===linkId)){db.links.push({id:linkId,sellerId:'S-101',productId,createdAt:db.today,deletedAt:null,disabled:false});}}db.testProductLinksIssued=true;}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true;}catch{toast('브라우저 저장 공간이 부족해 저장하지 못했습니다. 이미지를 줄이거나 데이터를 내보내 주세요.');return false;}}
 const who=()=>db.accounts.find(a=>a.id===session?.id)||null;
