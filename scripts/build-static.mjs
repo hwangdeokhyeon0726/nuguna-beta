@@ -31,7 +31,7 @@ for (const asset of ['xlsx.full.min.js', 'SHEETJS-LICENSE.txt']) {
   await copyFile(join(sourceDir, 'vendor', asset), join(outputDir, 'vendor', asset));
   count++;
 }
-for (const file of ['groupbuy.js', 'shipping.js', 'shipping-ui.js']) {
+for (const file of ['groupbuy.js', 'shipping.js', 'shipping-ui.js', 'supabase-catalog.js']) {
   new Script(await readFile(join(sourceDir, file), 'utf8'), { filename: file });
 }
 for (const asset of ['index.html', 'serum.webp', 'care.webp', 'object.webp', 'phone.webp', 'sample_mugs.png']) {
